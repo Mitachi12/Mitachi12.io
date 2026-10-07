@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mitarth Rai — Portfolio | CSIT Student & Game Dev Explorer</title>
+  <meta name="description" content="Personal portfolio of Mitarth Rai, 3rd Semester B.Tech CSIT student at REVA University. Interested in Game Development, Computer Graphics, Graphics Rendering, C/C++, and Problem Solving.">
+  <meta name="keywords" content="Mitarth Rai, REVA University, CSIT, Game Development, Computer Graphics, C++, C, Graphics Rendering, Student Portfolio">
+  <meta name="author" content="Mitarth Rai">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Mitarth Rai — Portfolio">
+  <meta property="og:description" content="3rd Semester B.Tech CSIT Student at REVA University exploring Game Development and Computer Graphics.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Subtle Canvas Grid Overlay Background -->
+  <div class="workstation-bg-grid" aria-hidden="true"></div>
+  <div class="ambient-glow glow-blue" aria-hidden="true"></div>
+  <div class="ambient-glow glow-cyan" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <header class="navbar-header" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-brand" id="nav-brand">
+        <span class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </span>
+        <div class="brand-text">
+          <span class="brand-name">Mitarth Rai</span>
+          <span class="brand-tag">CSIT-B</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#learning" class="nav-link">Learning</a>
+        <a href="#goals" class="nav-link">Goals</a>
+        <a href="#contact" class="nav-link nav-btn-accent">Contact</a>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation Menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="section-container hero-grid">
+        <div class="hero-content">
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            <span class="status-text">REVA University • CSIT-B</span>
+          </div>
+          
+          <h1 class="hero-headline">Hi, I'm <span class="text-gradient">Mitarth Rai.</span></h1>
+          <h2 class="hero-subheadline">3rd Semester B.Tech CSIT Student at REVA University</h2>
+          
+          <p class="hero-intro">
+            I'm interested in Game Development, Computer Graphics, and Graphics Rendering. I'm currently building my programming fundamentals and exploring how code, mathematics, and visual systems come together to create interactive experiences.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary" id="btn-hero-projects">
+              <span>View My Projects</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#contact" class="btn btn-secondary" id="btn-hero-contact">
+              <span>Connect With Me</span>
+            </a>
+          </div>
+
+          <div class="hero-tags">
+            <span class="tech-tag"><span class="tag-label">FOCUS:</span> C / C++</span>
+            <span class="tech-tag"><span class="tag-label">INTEREST:</span> Computer Graphics</span>
+            <span class="tech-tag"><span class="tag-label">AIM:</span> Real-Time Rendering</span>
+          </div>
+        </div>
+
+        <!-- 3D VIEWPORT INTERACTIVE CARD -->
+        <div class="hero-viewport-wrapper">
+          <div class="viewport-card">
+            <div class="viewport-header">
+              <div class="viewport-title">
+                <span class="viewport-dot red"></span>
+                <span class="viewport-dot yellow"></span>
+                <span class="viewport-dot green"></span>
+                <span class="viewport-label">RENDER_VIEWPORT.EXE</span>
+              </div>
+              <div class="viewport-stats">
+                <span id="fps-counter" class="stat-badge">60 FPS</span>
+                <span id="wireframe-mode-label" class="stat-badge cyan">MODE: WIREFRAME</span>
+              </div>
+            </div>
+
+            <!-- Interactive 3D Canvas -->
+            <div class="viewport-canvas-container">
+              <canvas id="hero-canvas" width="500" height="380"></canvas>
+              <div class="viewport-hud-overlay">
+                <div class="hud-top-left">
+                  <span class="hud-text">[XYZ AXES: ACTIVE]</span>
+                  <span class="hud-text">[VERTICES: 42]</span>
+                </div>
+                <div class="hud-bottom-right">
+                  <span class="hud-hint">Drag mouse to orbit mesh</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="viewport-toolbar">
+              <button class="vp-tool-btn active" id="btn-mode-wireframe" title="Wireframe View">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="4 4"></rect>
+                </svg>
+                Wireframe
+              </button>
+              <button class="vp-tool-btn" id="btn-mode-nodes" title="Vertex Nodes View">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <circle cx="6" cy="6" r="2"></circle>
+                  <circle cx="18" cy="6" r="2"></circle>
+                  <circle cx="6" cy="18" r="2"></circle>
+                  <circle cx="18" cy="18" r="2"></circle>
+                </svg>
+                Vertices
+              </button>
+              <button class="vp-tool-btn" id="btn-mode-solid" title="Solid Shaded View">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                </svg>
+                Solid
+              </button>
+              <button class="vp-tool-btn vp-reset" id="btn-reset-cam" title="Reset Viewport">
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section-padding" id="about">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-subtitle">01 // STUDENT PROFILE</span>
+          <h2 class="section-title">About Me</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-main-card">
+            <div class="card-corner-tag">ACADEMIC PROFILE</div>
+            <p class="about-text">
+              I am <strong>Mitarth Rai</strong>, a 3rd semester student pursuing my <strong>B.Tech in Computer Science and Information Technology (CSIT)</strong>, Section B, at <strong>REVA University</strong>.
+            </p>
+            <p class="about-text">
+              My current academic focus revolves around solidifying core computer science fundamentals—mastering data structures, algorithms, and logical problem-solving. Beyond core coursework, my long-term passion lies at the intersection of programming, mathematics, and visual systems.
+            </p>
+            <p class="about-text">
+              I am actively learning <strong>C and C++</strong> to build low-level programming fluency, with the target of exploring how game engines work under the hood, how graphics rendering pipelines process geometry, and how real-time rendering creates immersive 3D experiences.
+            </p>
+
+            <div class="student-note-box">
+              <div class="note-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+              </div>
+              <p class="note-text">
+                <em>Academic Note:</em> I am currently focused on building strong fundamentals through problem solving and coursework. I look forward to applying these skills toward graphics and game development projects as I progress.
+              </p>
+            </div>
+          </div>
+
+          <div class="about-sidebar">
+            <div class="info-card">
+              <h3 class="info-card-title">Quick Overview</h3>
+              <ul class="info-list">
+                <li>
+                  <span class="info-label">Name</span>
+                  <span class="info-val">Mitarth Rai</span>
+                </li>
+                <li>
+                  <span class="info-label">Degree</span>
+                  <span class="info-val">B.Tech CSIT</span>
+                </li>
+                <li>
+                  <span class="info-label">Institution</span>
+                  <span class="info-val">REVA University</span>
+                </li>
+                <li>
+                  <span class="info-label">Semester / Sec</span>
+                  <span class="info-val">3rd Semester (CSIT-B)</span>
+                </li>
+                <li>
+                  <span class="info-label">Primary Languages</span>
+                  <span class="info-val highlight-blue">C, C++</span>
+                </li>
+                <li>
+                  <span class="info-label">Core Direction</span>
+                  <span class="info-val highlight-cyan">Graphics & Game Dev</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="section-padding bg-alt" id="projects">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-subtitle">02 // CODE & REPOSITORIES</span>
+          <h2 class="section-title">Projects & Problem Solving</h2>
+          <p class="section-desc">Practical problem-solving work, language exploration, and future technical roadmap.</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="projects-grid">
+          
+          <!-- PROJECT 1: HackerRank 3rd Sem Portfolio -->
+          <article class="project-card featured-project">
+            <div class="project-header">
+              <div class="project-type-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 18l6-6-6-6M8 6l-6 6 6 6"></path>
+                </svg>
+                <span>C ALGORITHMS</span>
+              </div>
+              <span class="project-number">01</span>
+            </div>
+
+            <h3 class="project-title">HackerRank 3rd Semester Portfolio</h3>
+            <p class="project-description">
+              A collection of C solutions for algorithmic problem-solving practice, covering arrays, strings, data structures, and basic problem-solving techniques.
+            </p>
+
+            <div class="project-problems-box">
+              <span class="box-label">Included Problem Solutions:</span>
+              <div class="problems-tags">
+                <span class="prob-tag">Diagonal Difference</span>
+                <span class="prob-tag">Dynamic Array</span>
+                <span class="prob-tag">Time Conversion</span>
+                <span class="prob-tag">Compare the Triplets</span>
+                <span class="prob-tag">Sparse Arrays</span>
+              </div>
+            </div>
+
+            <div class="project-footer">
+              <a href="https://github.com/Mitachi12/HackerRank-3rdSem-Portfolio" target="_blank" rel="noopener noreferrer" class="btn btn-card-action" id="link-proj-hackerrank">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                <span>View on GitHub</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: LeetCode Practice -->
+          <article class="project-card">
+            <div class="project-header">
+              <div class="project-type-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                <span>PRACTICE</span>
+              </div>
+              <span class="project-number">02</span>
+            </div>
+
+            <h3 class="project-title">LeetCode Practice</h3>
+            <p class="project-description">
+              Problem-solving practice focused on strengthening programming fundamentals, algorithms, and logical thinking.
+            </p>
+
+            <div class="project-problems-box">
+              <span class="box-label">Repository:</span>
+              <div class="problems-tags">
+                <span class="prob-tag">leetcode-solutions</span>
+                <span class="prob-tag">Algorithmic Practice</span>
+              </div>
+            </div>
+
+            <div class="project-footer">
+              <a href="https://github.com/Mitachi12/leetcode-solutions" target="_blank" rel="noopener noreferrer" class="btn btn-card-action" id="link-proj-leetcode">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                <span>View on GitHub</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: Hello World / Programming Foundations -->
+          <article class="project-card">
+            <div class="project-header">
+              <div class="project-type-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="4 7 4 4 20 4 20 7"></polyline>
+                  <line x1="9" y1="20" x2="15" y2="20"></line>
+                  <line x1="12" y1="4" x2="12" y2="20"></line>
+                </svg>
+                <span>FOUNDATIONS</span>
+              </div>
+              <span class="project-number">03</span>
+            </div>
+
+            <h3 class="project-title">Hello World / Programming Foundations</h3>
+            <p class="project-description">
+              A basic programming project created while learning development tools, Git, GitHub, and programming fundamentals.
+            </p>
+
+            <div class="project-problems-box">
+              <span class="box-label">Repository:</span>
+              <div class="problems-tags">
+                <span class="prob-tag">Activity</span>
+                <span class="prob-tag">Programming Foundations</span>
+              </div>
+            </div>
+
+            <div class="project-footer">
+              <a href="https://github.com/Mitachi12/Activity" target="_blank" rel="noopener noreferrer" class="btn btn-card-action" id="link-proj-foundations">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                <span>View on GitHub</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 4: Game Development & Graphics (Future Card) -->
+          <article class="project-card future-card">
+            <div class="project-header">
+              <div class="exploring-badge">
+                <span class="pulse-dot"></span>
+                <span>CURRENTLY EXPLORING</span>
+              </div>
+              <span class="project-number">04</span>
+            </div>
+
+            <h3 class="project-title">Game Development & Graphics</h3>
+            <p class="project-description">
+              A future area of exploration focused on game development, computer graphics, rendering techniques, and interactive real-time experiences.
+            </p>
+
+            <div class="future-card-content">
+              <div class="graphics-icon-preview">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <span class="future-note">Upcoming Focus Area: Shaders, Geometry, & Rendering Engine Concepts</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="section-padding" id="skills">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-subtitle">03 // TECHNICAL STACK</span>
+          <h2 class="section-title">Skills & Interests</h2>
+          <p class="section-desc">Current programming competencies alongside future graphics exploration topics.</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="skills-grid">
+          
+          <!-- Programming Group -->
+          <div class="skill-category-card">
+            <div class="cat-header">
+              <div class="cat-icon blue">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <h3 class="cat-title">Programming</h3>
+            </div>
+            <ul class="skill-pills">
+              <li class="skill-item highlight"><span class="item-name">C</span><span class="item-badge">Core</span></li>
+              <li class="skill-item highlight"><span class="item-name">C++</span><span class="item-badge">Core</span></li>
+              <li class="skill-item"><span class="item-name">Python</span></li>
+            </ul>
+          </div>
+
+          <!-- Computer Science Group -->
+          <div class="skill-category-card">
+            <div class="cat-header">
+              <div class="cat-icon purple">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <h3 class="cat-title">Computer Science</h3>
+            </div>
+            <ul class="skill-pills">
+              <li class="skill-item"><span class="item-name">Problem Solving</span></li>
+              <li class="skill-item"><span class="item-name">Data Structures</span></li>
+              <li class="skill-item"><span class="item-name">Algorithms</span></li>
+              <li class="skill-item"><span class="item-name">Programming Fundamentals</span></li>
+            </ul>
+          </div>
+
+          <!-- Graphics / Future Focus -->
+          <div class="skill-category-card exploring-card">
+            <div class="cat-header">
+              <div class="cat-icon cyan">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </div>
+              <div class="cat-title-wrap">
+                <h3 class="cat-title">Graphics Focus</h3>
+                <span class="exploring-subtag">Areas I'm Exploring</span>
+              </div>
+            </div>
+            <ul class="skill-pills">
+              <li class="skill-item explore-item"><span class="item-name">Game Development</span></li>
+              <li class="skill-item explore-item"><span class="item-name">Computer Graphics</span></li>
+              <li class="skill-item explore-item"><span class="item-name">Graphics Rendering</span></li>
+              <li class="skill-item explore-item"><span class="item-name">Real-time Rendering</span></li>
+            </ul>
+          </div>
+
+          <!-- Tools Group -->
+          <div class="skill-category-card">
+            <div class="cat-header">
+              <div class="cat-icon text-gray">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                </svg>
+              </div>
+              <h3 class="cat-title">Tools</h3>
+            </div>
+            <ul class="skill-pills">
+              <li class="skill-item"><span class="item-name">Git</span></li>
+              <li class="skill-item"><span class="item-name">GitHub</span></li>
+              <li class="skill-item"><span class="item-name">VS Code</span></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT I'M LEARNING SECTION -->
+    <section class="section-padding bg-alt" id="learning">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-subtitle">04 // KNOWLEDGE IN PROGRESS</span>
+          <h2 class="section-title">What I'm Learning</h2>
+          <p class="section-desc">Active areas of focus shaping my computer science journey.</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="learning-grid">
+          
+          <div class="learning-card">
+            <div class="learning-emoji">🎮</div>
+            <div class="learning-body">
+              <h3 class="learning-title">Game Development</h3>
+              <p class="learning-desc">Learning how games are structured and how gameplay systems are built.</p>
+            </div>
+          </div>
+
+          <div class="learning-card">
+            <div class="learning-emoji">🖥️</div>
+            <div class="learning-body">
+              <h3 class="learning-title">Computer Graphics</h3>
+              <p class="learning-desc">Understanding how geometry, mathematics, programming, and visual output come together.</p>
+            </div>
+          </div>
+
+          <div class="learning-card">
+            <div class="learning-emoji">🎨</div>
+            <div class="learning-body">
+              <h3 class="learning-title">Graphics Rendering</h3>
+              <p class="learning-desc">Exploring how scenes, lighting, geometry, and rendering pipelines work.</p>
+            </div>
+          </div>
+
+          <div class="learning-card">
+            <div class="learning-emoji">💻</div>
+            <div class="learning-body">
+              <h3 class="learning-title">C / C++</h3>
+              <p class="learning-desc">Strengthening programming fundamentals and preparing for deeper systems and graphics programming.</p>
+            </div>
+          </div>
+
+          <div class="learning-card">
+            <div class="learning-emoji">🧠</div>
+            <div class="learning-body">
+              <h3 class="learning-title">Problem Solving</h3>
+              <p class="learning-desc">Continuing to practice algorithms and data structures.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- GOALS SECTION -->
+    <section class="section-padding" id="goals">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-subtitle">05 // FUTURE HORIZON</span>
+          <h2 class="section-title">Where I'm Headed</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="goals-card">
+          <div class="goals-quote-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="12 8 8 16 16 16 12 8"></polygon>
+            </svg>
+          </div>
+          <p class="goals-statement">
+            "My goal is to gradually move deeper into game development and graphics programming, understand how rendering systems work under the hood, and eventually build my own interactive graphics projects."
+          </p>
+          <div class="goals-meta">
+            <span class="meta-label">— Mitarth Rai</span>
+            <span class="meta-sub">Long-term Career Direction</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO JOURNEY TIMELINE -->
+    <section class="section-padding bg-alt" id="journey">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-subtitle">06 // MILESTONES & ROADMAP</span>
+          <h2 class="section-title">Portfolio Journey</h2>
+          <p class="section-desc">Progress timeline from programming foundations toward real-time rendering.</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="timeline-container">
+          <div class="timeline-line"></div>
+
+          <div class="timeline-item completed">
+            <div class="timeline-node">01</div>
+            <div class="timeline-content">
+              <h3 class="timeline-step-title">Programming Foundations</h3>
+              <p class="timeline-step-desc">Building strong core concepts in C and foundational logic.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item completed">
+            <div class="timeline-node">02</div>
+            <div class="timeline-content">
+              <h3 class="timeline-step-title">Git & GitHub</h3>
+              <p class="timeline-step-desc">Version control, repository management, and code tracking.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item completed">
+            <div class="timeline-node">03</div>
+            <div class="timeline-content">
+              <h3 class="timeline-step-title">Problem Solving</h3>
+              <p class="timeline-step-desc">Algorithmic practice on HackerRank and LeetCode platforms.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item active-step">
+            <div class="timeline-node">04</div>
+            <div class="timeline-content">
+              <h3 class="timeline-step-title">Portfolio Building</h3>
+              <p class="timeline-step-desc">Structuring project repositories and presenting academic progress.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item future-step">
+            <div class="timeline-node">05</div>
+            <div class="timeline-content">
+              <div class="step-header">
+                <h3 class="timeline-step-title">Game Development & Graphics</h3>
+                <span class="future-badge">Area I'm Moving Toward</span>
+              </div>
+              <p class="timeline-step-desc">Diving into math for graphics, C++, vector geometry, and basic game frameworks.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item future-step">
+            <div class="timeline-node">06</div>
+            <div class="timeline-content">
+              <div class="step-header">
+                <h3 class="timeline-step-title">Future Projects</h3>
+                <span class="future-badge">Area I'm Moving Toward</span>
+              </div>
+              <p class="timeline-step-desc">Building custom rendering experiments, shaders, and engine components.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section-padding" id="contact">
+      <div class="section-container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">07 // GET IN TOUCH</span>
+          <h2 class="section-title">Let's Connect</h2>
+          <div class="section-divider center"></div>
+        </div>
+
+        <div class="contact-wrapper">
+          <p class="contact-cta">
+            "I'm always open to learning, collaborating, and connecting with people interested in technology, game development, and computer graphics."
+          </p>
+
+          <div class="contact-cards-grid">
+            
+            <!-- GitHub Link -->
+            <a href="https://github.com/Mitachi12" target="_blank" rel="noopener noreferrer" class="contact-card" id="contact-github">
+              <div class="contact-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+              </div>
+              <div class="contact-info">
+                <span class="contact-platform">GitHub</span>
+                <span class="contact-detail">github.com/Mitachi12</span>
+              </div>
+              <span class="contact-arrow">→</span>
+            </a>
+
+            <!-- HackerRank Link -->
+            <a href="https://www.hackerrank.com/profile/raimitarth_vns" target="_blank" rel="noopener noreferrer" class="contact-card" id="contact-hackerrank">
+              <div class="contact-icon hackerrank-green">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0L1.5 6v12L12 24l10.5-6V6L12 0zm-1.2 16.2H8.4V7.8h2.4v8.4zm4.8 0h-2.4V7.8h2.4v8.4z"/>
+                </svg>
+              </div>
+              <div class="contact-info">
+                <span class="contact-platform">HackerRank Profile</span>
+                <span class="contact-detail">hackerrank.com/profile/raimitarth_vns</span>
+              </div>
+              <span class="contact-arrow">→</span>
+            </a>
+
+            <!-- LinkedIn Link -->
+            <a href="https://www.linkedin.com/in/mitarth-rai" target="_blank" rel="noopener noreferrer" class="contact-card" id="contact-linkedin">
+              <div class="contact-icon linkedin-blue">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.77a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2z"/>
+                </svg>
+              </div>
+              <div class="contact-info">
+                <span class="contact-platform">LinkedIn</span>
+                <span class="contact-detail">linkedin.com/in/mitarth-rai</span>
+              </div>
+              <span class="contact-arrow">→</span>
+            </a>
+
+            <!-- Email Link -->
+            <a href="mailto:raimitarth.vns@gmail.com" class="contact-card" id="contact-email">
+              <div class="contact-icon email-purple">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="contact-info">
+                <span class="contact-platform">Email</span>
+                <span class="contact-detail">raimitarth.vns@gmail.com</span>
+              </div>
+              <span class="contact-arrow">→</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <h3 class="footer-brand">Mitarth Rai</h3>
+        <p class="footer-academic">B.Tech CSIT • REVA University • 3rd Semester</p>
+        <p class="footer-motto">"Building. Learning. Rendering."</p>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-socials">
+          <a href="https://github.com/Mitachi12" target="_blank" rel="noopener noreferrer" title="GitHub Profile">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+          </a>
+          <a href="https://www.hackerrank.com/profile/raimitarth_vns" target="_blank" rel="noopener noreferrer" title="HackerRank Profile">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0L1.5 6v12L12 24l10.5-6V6L12 0zm-1.2 16.2H8.4V7.8h2.4v8.4zm4.8 0h-2.4V7.8h2.4v8.4z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/mitarth-rai" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.77a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2z"/>
+            </svg>
+          </a>
+        </div>
+        <p class="footer-copy">© Portfolio of Mitarth Rai. All content verified strictly from provided student profile.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="toast-notification" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
